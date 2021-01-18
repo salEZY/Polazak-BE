@@ -1,6 +1,6 @@
 # Basic Shop API
 
-Api created for Polazak BE Assignment.
+REST API created for Polazak BE Assignment.
 
 ## How to start
 
@@ -15,7 +15,10 @@ npm start
 First command installs all the dependencies(only needs to be executed once!), and the second one starts the server.
 
 Server is running at http://localhost:8080/
+
 API is connected with MongoDB Atlas.
+
+All responses are in standardized JSON format.
 
 ## API Documentation
 
