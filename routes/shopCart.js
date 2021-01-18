@@ -68,8 +68,7 @@ router.post(
       quantity,
     };
     res.json({
-      product,
-      cartedProduct,
+      data: [product, cartedProduct],
       message: "You have completed the purchase!",
       details: `Details -> Name: ${name} , Price: ${price}(${product.price} x ${quantity})`,
     });

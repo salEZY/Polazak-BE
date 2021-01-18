@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
   } catch (error) {
     return res.status(500).json({ message: "Server error!" });
   }
-  res.json({ products });
+  res.json({ data: products });
 });
 
 // Add product POST
@@ -68,7 +68,7 @@ router.post(
       console.log(error);
       return res.status(500).json({ message: "Product could NOT be saved!" });
     }
-    res.json({ product, message: "Product added!" });
+    res.json({ data: product, message: "Product added!" });
   }
 );
 
@@ -112,7 +112,7 @@ router.patch(
       console.log(error);
       return res.status(500).json({ message: "Product could NOT be edited!" });
     }
-    res.json({ product, message: "Product edited!" });
+    res.json({ data: product, message: "Product edited!" });
   }
 );
 

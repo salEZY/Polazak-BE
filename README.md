@@ -20,6 +20,13 @@ API is connected with MongoDB Atlas.
 
 All responses are in standardized JSON format.
 
+```
+{
+  "data": {},
+  "message": ""
+}
+```
+
 ## API Documentation
 
 ### Admin endpoints /api/product
