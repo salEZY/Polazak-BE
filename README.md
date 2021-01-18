@@ -22,6 +22,12 @@ API is connected with MongoDB Atlas.
 
 Every API endpoint was tested with Postman.
 
+Unit tests are located in the folder `test`. Script to start them:
+
+```
+npm run test
+```
+
 All responses are in standardized JSON format:
 
 ```
