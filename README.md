@@ -31,20 +31,20 @@ Display all products(visible and invisible)
 
 Add a new product to the database
 
-#### PATCH /api/product/:productId/edit
+#### PATCH `/api/product/:productId/edit`
 
 Update the product
 
-#### DELETE /api/product/:productId/delete
+#### DELETE `/api/product/:productId/delete`
 
 ### Shop-n-cart endpoints /api/shop-n-cart
 
 Shop and cart routes do not have a check if a user is logged in. It's a conscious decision because many of the shops do not require a user account to create a purchase. It would have been no problem to create such a check though.
 
-#### GET /api/shop-n-cart/
+#### GET `/api/shop-n-cart/`
 
 Display all visible products
 
-#### POST /api/shop-n-cart/cart
+#### POST `/api/shop-n-cart/cart`
 
 Adding products to cart
