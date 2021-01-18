@@ -2,6 +2,8 @@ const express = require("express");
 const { check, validationResult } = require("express-validator");
 
 const Product = require("../models/Product");
+const Purchase = require("../models/Purchase");
+const userVerify = require("../util/userVerify");
 
 const router = express.Router();
 
@@ -16,6 +18,10 @@ router.get("/", async (req, res) => {
   let filtered = products.filter((product) => product.visible != false);
   res.json({ data: filtered });
 });
+
+// Middleware to check if user is logged in
+router.use(userVerify);
+
 // Add to cart POST
 router.post(
   "/cart",
@@ -59,16 +65,26 @@ router.post(
     try {
       await product.save();
     } catch (error) {
-      return res.status(500).json({ message: "Server error!a" });
+      return res.status(500).json({ message: "Server error!" });
     }
-    // Create cart details
+    // Create a purchase
     let cartedProduct = {
       name,
       price,
       quantity,
+      creator: req.userData.userId,
     };
+    let purchase;
+    try {
+      purchase = new Purchase(cartedProduct);
+      await purchase.save();
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ message: "Server error!a" });
+    }
+
     res.json({
-      data: [product, cartedProduct],
+      data: [product, purchase],
       message: "You have completed the purchase!",
       details: `Details -> Name: ${name} , Price: ${price}(${product.price} x ${quantity})`,
     });

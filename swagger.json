@@ -1,0 +1,291 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Simple Shop",
+    "description": "Simple Shop API created for Polazak BE Assignment"
+  },
+  "schemes": ["http"],
+  "host": "localhost:8080",
+  "basePath": "/api",
+  "tags": [{ "name": "user" }, { "name": "admin" }, { "name": "shop-n-cart" }],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Registers a user",
+        "description": "Adds a new user to the database",
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Register a user",
+            "name": "user",
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Add a user",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Logs in a user",
+        "description": "Logs in a user to the shop!",
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Logs in a user",
+            "name": "user",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "User login",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product": {
+      "get": {
+        "tags": ["admin"],
+        "summary": "Gets all products",
+        "description": "Returns a list containing all products.",
+        "responses": {
+          "200": {
+            "description": "A list of Products",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  },
+                  "visible": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/add": {
+      "post": {
+        "tags": ["admin"],
+        "summary": "Adds a product",
+        "description": "Adds a new product to the database",
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Product to add",
+            "name": "product",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Add a product",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  },
+                  "visible": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/:productId/edit": {
+      "patch": {
+        "tags": ["admin"],
+        "summary": "Edits a product",
+        "description": "Edits one single product.",
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Product to edit",
+            "name": "product",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Edit a product",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  },
+                  "visible": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/product/:productId/delete": {
+      "delete": {
+        "tags": ["admin"],
+        "summary": "Deletes a product",
+        "description": "Deletes one single product.",
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Product to delete",
+            "name": "product",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete a product",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  },
+                  "visible": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shop-n-cart": {
+      "get": {
+        "tags": ["shop-n-cart"],
+        "summary": "Gets visible products",
+        "description": "Returns a list containing all visible products.",
+        "responses": {
+          "200": {
+            "description": "A list of Products",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  },
+                  "visible": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/shop-n-cart/cart": {
+      "post": {
+        "tags": ["shop-n-cart"],
+        "summary": "Creates a purchase",
+        "description": "Adds selected products to cart",
+        "responses": {
+          "200": {
+            "description": "Add to cart",
+            "schema": {
+              "type": "array",
+              "items": {
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

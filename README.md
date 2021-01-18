@@ -16,6 +16,8 @@ First command installs all of the dependencies(only needs to be executed once!),
 
 Server is running at http://localhost:8080/
 
+Swagger is located at http://localhost:8080/api-docs/
+
 API is connected with MongoDB Atlas.
 
 Every API endpoint was tested with Postman.
