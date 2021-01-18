@@ -20,7 +20,8 @@
             "in": "body",
             "description": "Register a user",
             "name": "user",
-            "required": true
+            "required": true,
+            "schema": {}
           }
         ],
         "responses": {
