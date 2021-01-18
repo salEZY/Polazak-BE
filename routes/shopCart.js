@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     return res.status(500).json({ message: "Server error!" });
   }
   let filtered = products.filter((product) => product.visible != false);
-  res.json(filtered);
+  res.json({ data: filtered });
 });
 // Add to cart POST
 router.post(

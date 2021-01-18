@@ -18,7 +18,7 @@ Server is running at http://localhost:8080/
 
 API is connected with MongoDB Atlas.
 
-All responses are in standardized JSON format.
+All responses are in standardized JSON format:
 
 ```
 {
@@ -49,7 +49,7 @@ Update the product
 
 ### Shop-n-cart endpoints /api/shop-n-cart
 
-Shop and cart routes do not have a check if a user is logged in. It's a conscious decision because many of the shops do not require a user account to create a purchase. It would have been no problem to create such a check though.
+Shop and cart routes do not have a check if a user is logged in. It's a conscious decision considering many of the shops do not require a user account to create a purchase. It would have been no problem to create such a check though.
 
 #### GET `/api/shop-n-cart/`
 
