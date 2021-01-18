@@ -23,11 +23,11 @@ API is connected with MongoDB Atlas.
 
 Admin routes are protected and are the following:
 
-#### GET /api/product/
+#### GET `/api/product/`
 
 Display all products(visible and invisible)
 
-#### POST /api/product/add
+#### POST `/api/product/add`
 
 Add a new product to the database
 
