@@ -21,25 +21,23 @@
             "description": "Register a user",
             "name": "user",
             "required": true,
-            "schema": {}
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Add a user",
             "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "email": {
-                    "type": "string"
-                  },
-                  "password": {
-                    "type": "string"
-                  }
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
                 }
               }
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User created",
+            "schema": {}
           }
         }
       }
@@ -55,25 +53,23 @@
             "description": "Logs in a user",
             "name": "user",
             "required": true,
-            "schema": {}
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "201": {
             "description": "User login",
-            "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "email": {
-                    "type": "string"
-                  },
-                  "password": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
+            "schema": {}
           }
         }
       }
@@ -86,25 +82,7 @@
         "responses": {
           "200": {
             "description": "A list of Products",
-            "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "price": {
-                    "type": "integer"
-                  },
-                  "quantity": {
-                    "type": "integer"
-                  },
-                  "visible": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
+            "schema": {}
           }
         }
       }
@@ -120,31 +98,29 @@
             "description": "Product to add",
             "name": "product",
             "required": true,
-            "schema": {}
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "quantity": {
+                  "type": "integer"
+                },
+                "visible": {
+                  "type": "boolean"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "201": {
             "description": "Add a product",
-            "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "price": {
-                    "type": "integer"
-                  },
-                  "quantity": {
-                    "type": "integer"
-                  },
-                  "visible": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
+            "schema": {}
           }
         }
       }
@@ -160,31 +136,32 @@
             "description": "Product to edit",
             "name": "product",
             "required": true,
-            "schema": {}
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "quantity": {
+                  "type": "integer"
+                },
+                "visible": {
+                  "type": "boolean"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Edit a product",
-            "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "price": {
-                    "type": "integer"
-                  },
-                  "quantity": {
-                    "type": "integer"
-                  },
-                  "visible": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
+            "schema": {}
           }
         }
       }
@@ -200,31 +177,20 @@
             "description": "Product to delete",
             "name": "product",
             "required": true,
-            "schema": {}
+            "schema": {
+              "type": "object",
+              "properties": {
+                "productId": {
+                  "type": "integer"
+                }
+              }
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Delete a product",
-            "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "price": {
-                    "type": "integer"
-                  },
-                  "quantity": {
-                    "type": "integer"
-                  },
-                  "visible": {
-                    "type": "boolean"
-                  }
-                }
-              }
-            }
+            "schema": {}
           }
         }
       }
@@ -265,25 +231,32 @@
         "tags": ["shop-n-cart"],
         "summary": "Creates a purchase",
         "description": "Adds selected products to cart",
-        "responses": {
-          "200": {
-            "description": "Add to cart",
+        "parameters": [
+          {
+            "in": "body",
+            "description": "Product to add",
+            "name": "product",
+            "required": true,
             "schema": {
-              "type": "array",
-              "items": {
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "price": {
-                    "type": "integer"
-                  },
-                  "quantity": {
-                    "type": "integer"
-                  }
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "quantity": {
+                  "type": "integer"
                 }
               }
             }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Add to cart",
+            "schema": {}
           }
         }
       }
