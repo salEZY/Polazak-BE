@@ -12,11 +12,13 @@ npm install
 npm start
 ```
 
-First command installs all the dependencies(only needs to be executed once!), and the second one starts the server.
+First command installs all of the dependencies(only needs to be executed once!), and the second command starts the server.
 
 Server is running at http://localhost:8080/
 
 API is connected with MongoDB Atlas.
+
+Every API endpoint was tested with Postman.
 
 All responses are in standardized JSON format:
 
