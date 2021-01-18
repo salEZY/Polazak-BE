@@ -53,7 +53,7 @@ Update the product
 
 ### Shop-n-cart endpoints /api/shop-n-cart
 
-Shop and cart routes do not have a check if a user is logged in. It's a conscious decision considering many of the shops do not require a user account to create a purchase. It would have been no problem to create such a check though.
+Shop and cart routes are the following:
 
 #### GET `/api/shop-n-cart/`
 
@@ -61,4 +61,4 @@ Display all visible products
 
 #### POST `/api/shop-n-cart/cart`
 
-Adding products to cart
+Adding products to cart. This route is enabled only for logged in users.
