@@ -43,7 +43,11 @@ All responses are in standardized JSON format:
 
 #### POST `/api/user/register`
 
+Register an account endpoint
+
 #### POST `/api/user/login`
+
+Login to account endpoint
 
 ### Admin endpoints /api/product
 
