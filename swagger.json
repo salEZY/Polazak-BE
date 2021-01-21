@@ -10,7 +10,7 @@
   "basePath": "/api",
   "tags": [{ "name": "user" }, { "name": "admin" }, { "name": "shop-n-cart" }],
   "paths": {
-    "/auth/register": {
+    "/user/register": {
       "post": {
         "tags": ["user"],
         "summary": "Registers a user",
@@ -42,7 +42,7 @@
         }
       }
     },
-    "/auth/login": {
+    "/user/login": {
       "post": {
         "tags": ["user"],
         "summary": "Logs in a user",

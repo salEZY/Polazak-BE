@@ -39,6 +39,12 @@ All responses are in standardized JSON format:
 
 ## API Documentation
 
+### Authentication endpoints /api/user
+
+#### POST `/api/user/register`
+
+#### POST `/api/user/login`
+
 ### Admin endpoints /api/product
 
 Admin routes are protected and are the following:
